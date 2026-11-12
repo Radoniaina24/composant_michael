@@ -7,6 +7,7 @@ import CheckboxesPage from '@/pages/components/checkboxes'
 import FormsPage from '@/pages/components/forms'
 import HomePage from '@/pages/home'
 import InputsPage from '@/pages/components/inputs'
+import NotificationsPage from '@/pages/components/notifications'
 import NotFoundPage from '@/pages/not-found'
 import RadioGroupPage from '@/pages/components/radio-group'
 import SelectPage from '@/pages/components/select'
@@ -31,6 +32,7 @@ export const router = createBrowserRouter([
           { path: 'champs-de-saisie', element: <InputsPage /> },
           { path: 'listes-deroulantes', element: <SelectPage /> },
           { path: 'formulaires', element: <FormsPage /> },
+          { path: 'notifications', element: <NotificationsPage /> },
         ],
       },
       { path: '*', element: <NotFoundPage /> },

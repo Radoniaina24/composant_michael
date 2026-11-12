@@ -64,6 +64,7 @@ const componentsNavigation = [
   { title: 'Champs de saisie', url: '/composants/champs-de-saisie' },
   { title: 'Listes déroulantes', url: '/composants/listes-deroulantes' },
   { title: 'Formulaires', url: '/composants/formulaires' },
+  { title: 'Notifications', url: '/composants/notifications' },
 ]
 
 export function AppSidebar() {
