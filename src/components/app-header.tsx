@@ -23,6 +23,7 @@ const pageTitles: Record<string, string> = {
   '/composants/champs-de-saisie': 'Champs de saisie',
   '/composants/listes-deroulantes': 'Listes déroulantes',
   '/composants/formulaires': 'Formulaires',
+  '/composants/menus-deroulants': 'Menus déroulants',
   '/composants/tableaux-de-donnees': 'Tableaux de données',
 }
 

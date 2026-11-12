@@ -59,17 +59,17 @@ export function DataTablePagination<TData>({
           </span>
           <DropdownMenu>
             <DropdownMenuTrigger
-              render={
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="min-w-16 justify-between font-normal"
-                  aria-label="Nombre de lignes par page"
-                />
-              }
+              asChild
             >
-              {pagination.pageSize}
-              <ChevronDownIcon className="text-muted-foreground" aria-hidden="true" />
+              <Button
+                variant="outline"
+                size="sm"
+                className="min-w-16 justify-between font-normal"
+                aria-label="Nombre de lignes par page"
+              >
+                {pagination.pageSize}
+                <ChevronDownIcon className="text-muted-foreground" aria-hidden="true" />
+              </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-24">
               <DropdownMenuLabel>Lignes</DropdownMenuLabel>

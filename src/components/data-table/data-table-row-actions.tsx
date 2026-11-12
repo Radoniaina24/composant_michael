@@ -71,17 +71,17 @@ export function DataTableRowActions<TData>({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        render={
-          <Button
-            variant="ghost"
-            size="icon-sm"
-            className="text-muted-foreground hover:text-foreground"
-            aria-label="Ouvrir les actions de la ligne"
-            data-row-interactive
-          />
-        }
+        asChild
       >
-        <MoreHorizontalIcon aria-hidden="true" />
+        <Button
+          variant="ghost"
+          size="icon-sm"
+          className="text-muted-foreground hover:text-foreground"
+          aria-label="Ouvrir les actions de la ligne"
+          data-row-interactive
+        >
+          <MoreHorizontalIcon aria-hidden="true" />
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-52">
         <RowActionItems row={row} actions={actions} context="dropdown" />

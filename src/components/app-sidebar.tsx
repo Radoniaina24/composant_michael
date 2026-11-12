@@ -64,6 +64,7 @@ const componentsNavigation = [
   { title: 'Champs de saisie', url: '/composants/champs-de-saisie' },
   { title: 'Listes déroulantes', url: '/composants/listes-deroulantes' },
   { title: 'Formulaires', url: '/composants/formulaires' },
+  { title: 'Menus déroulants', url: '/composants/menus-deroulants' },
   { title: 'Tableaux de données', url: '/composants/tableaux-de-donnees' },
   { title: 'Notifications', url: '/composants/notifications' },
 ]
@@ -165,21 +166,21 @@ export function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <DropdownMenu>
-              <DropdownMenuTrigger
-                render={<SidebarMenuButton size="lg" />}
-              >
-                <Avatar className="size-8 rounded-lg">
-                  <AvatarFallback className="rounded-lg">
-                    {user.initials}
-                  </AvatarFallback>
-                </Avatar>
-                <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">{user.name}</span>
-                  <span className="truncate text-xs text-muted-foreground">
-                    {user.email}
-                  </span>
-                </div>
-                <ChevronsUpDownIcon className="ml-auto size-4" />
+              <DropdownMenuTrigger asChild>
+                <SidebarMenuButton size="lg">
+                  <Avatar className="size-8 rounded-lg">
+                    <AvatarFallback className="rounded-lg">
+                      {user.initials}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div className="grid flex-1 text-left text-sm leading-tight">
+                    <span className="truncate font-medium">{user.name}</span>
+                    <span className="truncate text-xs text-muted-foreground">
+                      {user.email}
+                    </span>
+                  </div>
+                  <ChevronsUpDownIcon className="ml-auto size-4" />
+                </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 side="right"
@@ -189,13 +190,17 @@ export function AppSidebar() {
               >
                 <DropdownMenuGroup>
                   <DropdownMenuLabel>Mon compte</DropdownMenuLabel>
-                  <DropdownMenuItem render={<Link to="/parametres" />}>
-                    <UserRoundIcon />
-                    Profil
+                  <DropdownMenuItem asChild>
+                    <Link to="/parametres">
+                      <UserRoundIcon />
+                      Profil
+                    </Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem render={<Link to="/parametres" />}>
-                    <SettingsIcon />
-                    Paramètres
+                  <DropdownMenuItem asChild>
+                    <Link to="/parametres">
+                      <SettingsIcon />
+                      Paramètres
+                    </Link>
                   </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />

@@ -170,20 +170,20 @@ export function DataTableToolbar<TData>({
           {enableExport && onExport && (
             <DropdownMenu>
               <DropdownMenuTrigger
-                render={
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    disabled={!canExport || exporting !== null}
-                    aria-label="Exporter les données"
-                    title="Exporter les données"
-                  />
-                }
+                asChild
               >
-                <DownloadIcon aria-hidden="true" />
-                <span className="hidden md:inline">
-                  {exporting ? 'Export…' : 'Exporter'}
-                </span>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  disabled={!canExport || exporting !== null}
+                  aria-label="Exporter les données"
+                  title="Exporter les données"
+                >
+                  <DownloadIcon aria-hidden="true" />
+                  <span className="hidden md:inline">
+                    {exporting ? 'Export…' : 'Exporter'}
+                  </span>
+                </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-44">
                 <DropdownMenuItem

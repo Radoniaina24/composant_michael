@@ -83,16 +83,16 @@ export function DataTableColumnHeader<TData, TValue>({
       {showMenu && !isInternal && (
         <DropdownMenu>
           <DropdownMenuTrigger
-            render={
-              <Button
-                variant="ghost"
-                size="icon-xs"
-                className="shrink-0 text-muted-foreground opacity-0 transition-opacity group-hover/header:opacity-100 focus-visible:opacity-100 aria-expanded:opacity-100"
-                aria-label="Options de la colonne"
-              />
-            }
+            asChild
           >
-            <ChevronsUpDownIcon aria-hidden="true" />
+            <Button
+              variant="ghost"
+              size="icon-xs"
+              className="shrink-0 text-muted-foreground opacity-0 transition-opacity group-hover/header:opacity-100 focus-visible:opacity-100 aria-expanded:opacity-100"
+              aria-label="Options de la colonne"
+            >
+              <ChevronsUpDownIcon aria-hidden="true" />
+            </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-48">
             <DropdownMenuLabel className="truncate">
