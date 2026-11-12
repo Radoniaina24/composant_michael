@@ -4,6 +4,7 @@ import AboutPage from '@/pages/about'
 import ButtonsPage from '@/pages/components/buttons'
 import CardsPage from '@/pages/components/cards'
 import CheckboxesPage from '@/pages/components/checkboxes'
+import DataTablePage from '@/pages/components/data-table'
 import FormsPage from '@/pages/components/forms'
 import HomePage from '@/pages/home'
 import InputsPage from '@/pages/components/inputs'
@@ -32,6 +33,7 @@ export const router = createBrowserRouter([
           { path: 'champs-de-saisie', element: <InputsPage /> },
           { path: 'listes-deroulantes', element: <SelectPage /> },
           { path: 'formulaires', element: <FormsPage /> },
+          { path: 'tableaux-de-donnees', element: <DataTablePage /> },
           { path: 'notifications', element: <NotificationsPage /> },
         ],
       },
