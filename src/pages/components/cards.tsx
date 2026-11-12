@@ -1,7 +1,9 @@
 import { ArrowUpRightIcon, UsersIcon } from 'lucide-react'
+import { ComponentDocs } from '@/components/component-docs'
 import { PageHeader } from '@/components/page-header'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import cardSource from '@/components/ui/card.tsx?raw'
 import {
   Card,
   CardContent,
@@ -17,6 +19,29 @@ const stats = [
   { label: 'Projets', value: '12', change: '+2' },
   { label: 'Tâches', value: '32', change: '−4' },
 ]
+
+const usage = `import { Badge } from '@/components/ui/badge'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+
+export function Exemple() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Projet Alpha</CardTitle>
+        <CardDescription>Refonte de l’espace client.</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <Badge>En cours</Badge>
+      </CardContent>
+    </Card>
+  )
+}`
 
 export default function CardsPage() {
   return (
@@ -83,6 +108,13 @@ export default function CardsPage() {
           </Button>
         </CardFooter>
       </Card>
+
+      <ComponentDocs
+        usage={usage}
+        source={cardSource}
+        sourceTitle="Code du composant Card"
+        sourceDescription="Composant shadcn/ui généré dans src/components/ui/card.tsx."
+      />
     </div>
   )
 }

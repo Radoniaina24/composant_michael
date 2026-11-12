@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { z } from 'zod'
 import { ActionButton } from '@/components/action-button'
 import { CheckboxField } from '@/components/checkbox-field'
+import checkboxFieldSource from '@/components/checkbox-field.tsx?raw'
+import { ComponentDocs } from '@/components/component-docs'
 import { PageHeader } from '@/components/page-header'
 import {
   Card,
@@ -18,6 +20,23 @@ import { Separator } from '@/components/ui/separator'
 const termsSchema = z.literal(true, {
   error: 'Vous devez accepter les conditions pour continuer.',
 })
+
+const usage = `import { useState } from 'react'
+import { CheckboxField } from '@/components/checkbox-field'
+
+export function Exemple() {
+  const [accepted, setAccepted] = useState(false)
+
+  return (
+    <CheckboxField
+      id="terms"
+      label="J’accepte les conditions"
+      description="Vous pourrez modifier ce choix à tout moment."
+      checked={accepted}
+      onCheckedChange={setAccepted}
+    />
+  )
+}`
 
 const preferences = [
   {
@@ -172,6 +191,8 @@ export default function CheckboxesPage() {
           </CardFooter>
         </form>
       </Card>
+
+      <ComponentDocs usage={usage} source={checkboxFieldSource} />
     </div>
   )
 }

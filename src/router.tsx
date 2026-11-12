@@ -6,8 +6,10 @@ import CardsPage from '@/pages/components/cards'
 import CheckboxesPage from '@/pages/components/checkboxes'
 import FormsPage from '@/pages/components/forms'
 import HomePage from '@/pages/home'
+import InputsPage from '@/pages/components/inputs'
 import NotFoundPage from '@/pages/not-found'
 import RadioGroupPage from '@/pages/components/radio-group'
+import SelectPage from '@/pages/components/select'
 import SettingsPage from '@/pages/settings'
 
 export const router = createBrowserRouter([
@@ -26,6 +28,8 @@ export const router = createBrowserRouter([
           { path: 'boutons-radio', element: <RadioGroupPage /> },
           { path: 'cartes', element: <CardsPage /> },
           { path: 'cases-a-cocher', element: <CheckboxesPage /> },
+          { path: 'champs-de-saisie', element: <InputsPage /> },
+          { path: 'listes-deroulantes', element: <SelectPage /> },
           { path: 'formulaires', element: <FormsPage /> },
         ],
       },

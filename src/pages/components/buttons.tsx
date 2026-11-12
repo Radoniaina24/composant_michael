@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { ArrowRightIcon, PlusIcon, SendIcon, Trash2Icon } from 'lucide-react'
 import { ActionButton } from '@/components/action-button'
+import actionButtonSource from '@/components/action-button.tsx?raw'
+import { ComponentDocs } from '@/components/component-docs'
 import { PageHeader } from '@/components/page-header'
 import { Button } from '@/components/ui/button'
 import {
@@ -20,8 +22,32 @@ const variants = [
   'link',
 ] as const
 
+const usage = `import { useState } from 'react'
+import { ArrowRightIcon, PlusIcon } from 'lucide-react'
+import { ActionButton } from '@/components/action-button'
+
+export function Exemple() {
+  const [count, setCount] = useState(0)
+
+  return (
+    <div className="flex flex-wrap gap-3">
+      <ActionButton
+        leftIcon={PlusIcon}
+        onClick={() => setCount((value) => value + 1)}
+      >
+        Cliquer ({count})
+      </ActionButton>
+      <ActionButton variant="outline" rightIcon={ArrowRightIcon}>
+        Continuer
+      </ActionButton>
+      <ActionButton loading>Enregistrement…</ActionButton>
+    </div>
+  )
+}`
+
 export default function ButtonsPage() {
   const [loading, setLoading] = useState(false)
+  const [count, setCount] = useState(0)
 
   function simulateLoading() {
     setLoading(true)
@@ -81,6 +107,31 @@ export default function ButtonsPage() {
 
       <Card>
         <CardHeader>
+          <CardTitle>Déclencher une action</CardTitle>
+          <CardDescription>
+            Le bouton conserve le comportement natif : onClick, submit, lien et
+            actions asynchrones avec l’état loading.
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-wrap items-center gap-3">
+          <ActionButton onClick={() => setCount((value) => value + 1)}>
+            Incrémenter
+          </ActionButton>
+          <span className="text-sm text-muted-foreground">
+            Clics : {count}
+          </span>
+          <ActionButton
+            variant="outline"
+            disabled={count === 0}
+            onClick={() => setCount(0)}
+          >
+            Réinitialiser
+          </ActionButton>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
           <CardTitle>Variantes</CardTitle>
           <CardDescription>
             Utilisez la variante adaptée au niveau d’importance de l’action.
@@ -107,6 +158,8 @@ export default function ButtonsPage() {
           <Button size="lg">Large</Button>
         </CardContent>
       </Card>
+
+      <ComponentDocs usage={usage} source={actionButtonSource} />
     </div>
   )
 }

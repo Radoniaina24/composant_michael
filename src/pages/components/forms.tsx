@@ -2,7 +2,9 @@ import { useState } from 'react'
 import { SendIcon } from 'lucide-react'
 import { z } from 'zod'
 import { ActionButton } from '@/components/action-button'
+import { ComponentDocs } from '@/components/component-docs'
 import { PageHeader } from '@/components/page-header'
+import formsSource from '@/pages/components/forms.tsx?raw'
 import {
   Card,
   CardContent,
@@ -25,6 +27,45 @@ type ContactValues = z.infer<typeof contactSchema>
 type FieldErrors = Partial<Record<keyof ContactValues, string>>
 
 const initialValues: ContactValues = { name: '', email: '', message: '' }
+
+const usage = `import { useState } from 'react'
+import { z } from 'zod'
+import { ActionButton } from '@/components/action-button'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+
+const emailSchema = z.email('Adresse e-mail invalide.')
+
+export function Exemple() {
+  const [email, setEmail] = useState('')
+  const [error, setError] = useState<string>()
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const result = emailSchema.safeParse(email)
+    setError(result.success ? undefined : result.error.issues[0].message)
+  }
+
+  return (
+    <form onSubmit={handleSubmit} noValidate className="grid gap-3">
+      <Label htmlFor="email">E-mail</Label>
+      <Input
+        id="email"
+        type="email"
+        value={email}
+        onChange={(event) => setEmail(event.target.value)}
+        aria-invalid={error !== undefined}
+        aria-describedby={error ? 'email-error' : undefined}
+      />
+      {error && (
+        <p id="email-error" className="text-sm text-destructive">
+          {error}
+        </p>
+      )}
+      <ActionButton type="submit">Envoyer</ActionButton>
+    </form>
+  )
+}`
 
 export default function FormsPage() {
   const [values, setValues] = useState(initialValues)
@@ -140,6 +181,13 @@ export default function FormsPage() {
           </CardFooter>
         </form>
       </Card>
+
+      <ComponentDocs
+        usage={usage}
+        source={formsSource}
+        sourceTitle="Exemple complet"
+        sourceDescription="Code source complet de cette page de démonstration."
+      />
     </div>
   )
 }

@@ -61,6 +61,8 @@ const componentsNavigation = [
   { title: 'Boutons radio', url: '/composants/boutons-radio' },
   { title: 'Cartes', url: '/composants/cartes' },
   { title: 'Cases à cocher', url: '/composants/cases-a-cocher' },
+  { title: 'Champs de saisie', url: '/composants/champs-de-saisie' },
+  { title: 'Listes déroulantes', url: '/composants/listes-deroulantes' },
   { title: 'Formulaires', url: '/composants/formulaires' },
 ]
 

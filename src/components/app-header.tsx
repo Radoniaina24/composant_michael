@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { Fragment, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { ModeToggle } from '@/components/mode-toggle'
 import {
@@ -20,6 +20,8 @@ const pageTitles: Record<string, string> = {
   '/composants/boutons-radio': 'Boutons radio',
   '/composants/cartes': 'Cartes',
   '/composants/cases-a-cocher': 'Cases à cocher',
+  '/composants/champs-de-saisie': 'Champs de saisie',
+  '/composants/listes-deroulantes': 'Listes déroulantes',
   '/composants/formulaires': 'Formulaires',
 }
 
@@ -66,21 +68,26 @@ export function AppHeader() {
             const isLast = index === crumbs.length - 1
 
             return (
-              <BreadcrumbItem
-                key={`${crumb.label}-${index}`}
-                className={index < crumbs.length - 1 ? 'hidden sm:inline-flex' : undefined}
-              >
+              <Fragment key={`${crumb.label}-${index}`}>
                 {index > 0 && (
                   <BreadcrumbSeparator className="hidden sm:block" />
                 )}
-                {isLast || !crumb.to ? (
-                  <BreadcrumbPage>{crumb.label}</BreadcrumbPage>
-                ) : (
-                  <BreadcrumbLink render={<Link to={crumb.to} />}>
-                    {crumb.label}
-                  </BreadcrumbLink>
-                )}
-              </BreadcrumbItem>
+                <BreadcrumbItem
+                  className={
+                    index < crumbs.length - 1
+                      ? 'hidden sm:inline-flex'
+                      : undefined
+                  }
+                >
+                  {isLast || !crumb.to ? (
+                    <BreadcrumbPage>{crumb.label}</BreadcrumbPage>
+                  ) : (
+                    <BreadcrumbLink render={<Link to={crumb.to} />}>
+                      {crumb.label}
+                    </BreadcrumbLink>
+                  )}
+                </BreadcrumbItem>
+              </Fragment>
             )
           })}
         </BreadcrumbList>

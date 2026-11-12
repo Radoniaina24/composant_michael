@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { z } from 'zod'
 import { ActionButton } from '@/components/action-button'
+import { ComponentDocs } from '@/components/component-docs'
 import { PageHeader } from '@/components/page-header'
 import {
   RadioGroupField,
   type RadioOption,
 } from '@/components/radio-group-field'
+import radioGroupFieldSource from '@/components/radio-group-field.tsx?raw'
 import {
   Card,
   CardContent,
@@ -56,6 +58,27 @@ const accountOptions: RadioOption[] = [
 const accountSchema = z.string().min(1, {
   error: 'Choisissez un type de compte.',
 })
+
+const usage = `import { useState } from 'react'
+import { RadioGroupField } from '@/components/radio-group-field'
+
+const options = [
+  { value: 'mensuel', label: 'Mensuel', description: '9 € par mois.' },
+  { value: 'annuel', label: 'Annuel', description: '90 € par an.' },
+]
+
+export function Exemple() {
+  const [plan, setPlan] = useState('mensuel')
+
+  return (
+    <RadioGroupField
+      label="Formule d’abonnement"
+      options={options}
+      value={plan}
+      onValueChange={setPlan}
+    />
+  )
+}`
 
 export default function RadioGroupPage() {
   const [plan, setPlan] = useState('mensuel')
@@ -163,6 +186,8 @@ export default function RadioGroupPage() {
           </CardFooter>
         </form>
       </Card>
+
+      <ComponentDocs usage={usage} source={radioGroupFieldSource} />
     </div>
   )
 }
