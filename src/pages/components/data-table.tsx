@@ -55,6 +55,15 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table'
+import {
   Sheet,
   SheetContent,
   SheetDescription,
@@ -1220,6 +1229,71 @@ export default function DataTablePage() {
           ),
         }}
       />
+
+      <Card className="data-table-theme border border-slate-200/80 bg-white dark:border-slate-700 dark:bg-slate-900">
+        <CardHeader>
+          <CardTitle>Tableau simple</CardTitle>
+          <CardDescription>
+            Une présentation légère des commandes, sans filtres ni pagination.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="overflow-x-auto rounded-lg border border-slate-200/80 dark:border-slate-700">
+            <Table className="min-w-[36rem]">
+              <TableCaption className="px-4 pb-3 text-left">
+                Les cinq dernières commandes.
+              </TableCaption>
+              <TableHeader>
+                <TableRow className="border-b border-slate-200 bg-slate-100 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-800">
+                  <TableHead className="h-11 bg-slate-100 text-xs font-semibold tracking-wide text-slate-600 uppercase dark:bg-slate-800 dark:text-slate-300">
+                    Référence
+                  </TableHead>
+                  <TableHead className="h-11 bg-slate-100 text-xs font-semibold tracking-wide text-slate-600 uppercase dark:bg-slate-800 dark:text-slate-300">
+                    Client
+                  </TableHead>
+                  <TableHead className="h-11 bg-slate-100 text-xs font-semibold tracking-wide text-slate-600 uppercase dark:bg-slate-800 dark:text-slate-300">
+                    Statut
+                  </TableHead>
+                  <TableHead className="h-11 bg-slate-100 text-right text-xs font-semibold tracking-wide text-slate-600 uppercase dark:bg-slate-800 dark:text-slate-300">
+                    Montant
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {orders.slice(-5).reverse().map((order) => {
+                  const status = getOrderStatusMeta(order.status)
+
+                  return (
+                    <TableRow
+                      key={order.id}
+                      className="border-b border-slate-200/70 hover:bg-slate-50 dark:border-slate-700/70 dark:hover:bg-slate-800"
+                    >
+                      <TableCell className="font-mono text-xs font-medium text-muted-foreground">
+                        {order.reference}
+                      </TableCell>
+                      <TableCell>
+                        <div className="font-medium">{order.customer.name}</div>
+                        <div className="mt-0.5 text-xs text-muted-foreground">
+                          {order.customer.email}
+                        </div>
+                      </TableCell>
+                      <TableCell>
+                        <DataTableStatus
+                          label={status.label}
+                          tone={status.tone}
+                        />
+                      </TableCell>
+                      <TableCell className="text-right font-medium tabular-nums">
+                        {formatCurrency(order.amount)}
+                      </TableCell>
+                    </TableRow>
+                  )
+                })}
+              </TableBody>
+            </Table>
+          </div>
+        </CardContent>
+      </Card>
 
       <Card>
         <CardHeader>

@@ -616,7 +616,7 @@ export function DataTable<TData>({
             getAlignClass(meta?.align),
             meta?.cellClassName,
             pinned &&
-              'z-10 bg-card group-hover/row:bg-muted/40 group-data-[state=selected]/row:bg-muted/60',
+              'z-10 bg-card group-hover/row:bg-slate-50 group-data-[state=selected]/row:bg-indigo-50 dark:group-hover/row:bg-slate-800 dark:group-data-[state=selected]/row:bg-indigo-950',
             pinned === 'left' &&
               column.getIsLastColumn('left') &&
               'shadow-[inset_-8px_0_8px_-10px_rgba(0,0,0,0.25)]',
@@ -697,7 +697,8 @@ export function DataTable<TData>({
     const rowClassName = cn(
       'group/row',
       onRowClick && !disabled && 'cursor-pointer',
-      row.getIsSelected() && 'bg-muted/50 hover:bg-muted/60',
+      row.getIsSelected() &&
+        'data-[state=selected]:!bg-indigo-50 dark:data-[state=selected]:!bg-indigo-950',
       disabled && 'opacity-60',
     )
     const rowProps = {
@@ -773,7 +774,7 @@ export function DataTable<TData>({
   return (
     <div
       className={cn(
-        'overflow-hidden rounded-xl bg-card text-sm text-card-foreground ring-1 ring-foreground/10',
+        'data-table-theme overflow-hidden rounded-xl bg-card text-sm text-card-foreground ring-1 ring-foreground/10',
         className,
       )}
     >
@@ -917,7 +918,7 @@ export function DataTable<TData>({
               {table.getHeaderGroups().map((headerGroup) => (
                 <TableRow
                   key={headerGroup.id}
-                  className="bg-muted/80 backdrop-blur-sm hover:bg-muted/80"
+                  className="border-b border-border bg-slate-100 backdrop-blur-sm hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-800"
                 >
                   {headerGroup.headers.map((header) => {
                     const column = header.column
@@ -951,10 +952,10 @@ export function DataTable<TData>({
                             : undefined
                         }
                         className={cn(
-                          'group/header relative bg-muted/80',
+                          'group/header relative h-11 bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300',
                           getAlignClass(meta?.align),
                           meta?.headerClassName,
-                          pinned && 'z-30 bg-muted',
+                          pinned && 'z-30 bg-slate-100 dark:bg-slate-800',
                           pinned === 'left' &&
                             column.getIsLastColumn('left') &&
                             'shadow-[inset_-8px_0_8px_-10px_rgba(0,0,0,0.25)]',

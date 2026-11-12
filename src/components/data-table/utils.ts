@@ -213,34 +213,34 @@ export function getAlignClass(align: DataTableAlign | undefined) {
 export function getToneClasses(tone: DataTableTone) {
   switch (tone) {
     case 'success':
-      return 'border-success/25 bg-success-surface text-success'
+      return 'border-green-200 bg-[#dcfce7] text-[#166534] dark:border-green-800 dark:bg-green-950 dark:text-green-300'
     case 'warning':
-      return 'border-warning/25 bg-warning-surface text-warning'
+      return 'border-amber-200 bg-[#fef3c7] text-[#92400e] dark:border-amber-800 dark:bg-amber-950 dark:text-amber-300'
     case 'info':
-      return 'border-info/25 bg-info-surface text-info'
+      return 'border-blue-200 bg-[#dbeafe] text-[#1e40af] dark:border-blue-800 dark:bg-blue-950 dark:text-blue-300'
     case 'destructive':
-      return 'border-destructive/25 bg-destructive-surface text-destructive'
+      return 'border-red-200 bg-[#fee2e2] text-[#991b1b] dark:border-red-800 dark:bg-red-950 dark:text-red-300'
     case 'primary':
-      return 'border-primary/15 bg-muted text-foreground'
+      return 'border-indigo-200 bg-indigo-50 text-indigo-700 dark:border-indigo-800 dark:bg-indigo-950 dark:text-indigo-300'
     default:
-      return 'border-border bg-muted text-muted-foreground'
+      return 'border-slate-200 bg-slate-100 text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300'
   }
 }
 
 export function getToneDotClasses(tone: DataTableTone) {
   switch (tone) {
     case 'success':
-      return 'bg-success'
+      return 'bg-green-700 dark:bg-green-300'
     case 'warning':
-      return 'bg-warning'
+      return 'bg-amber-700 dark:bg-amber-300'
     case 'info':
-      return 'bg-info'
+      return 'bg-blue-700 dark:bg-blue-300'
     case 'destructive':
-      return 'bg-destructive'
+      return 'bg-red-700 dark:bg-red-300'
     case 'primary':
-      return 'bg-primary'
+      return 'bg-indigo-600 dark:bg-indigo-400'
     default:
-      return 'bg-muted-foreground'
+      return 'bg-slate-500 dark:bg-slate-400'
   }
 }
 

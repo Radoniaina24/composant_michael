@@ -158,9 +158,10 @@ export function DataTableMobileView<TData>({
             data-slot="data-table-mobile-card"
             className={cn(
               'rounded-xl border bg-card p-3 text-sm transition-colors',
-              row.getIsSelected() && 'border-primary/30 bg-muted/40',
+              row.getIsSelected() &&
+                'border-indigo-200 bg-indigo-50 dark:border-indigo-800 dark:bg-indigo-950',
               disabled && 'opacity-60',
-              onRowClick && 'hover:bg-muted/30',
+              onRowClick && 'hover:bg-slate-50 dark:hover:bg-slate-800',
             )}
             onClick={(event) => {
               if (!onRowClick || disabled) {

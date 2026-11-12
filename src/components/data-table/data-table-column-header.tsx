@@ -63,8 +63,8 @@ export function DataTableColumnHeader<TData, TValue>({
           type="button"
           onClick={column.getToggleSortingHandler()}
           className={cn(
-            '-ml-1.5 flex min-w-0 flex-1 items-center gap-1 rounded-md px-1.5 py-1 text-left outline-none transition-colors hover:bg-muted/60 focus-visible:ring-2 focus-visible:ring-ring/50',
-            sorted && 'text-foreground',
+            '-ml-1.5 flex min-w-0 flex-1 items-center gap-1 rounded-md px-1.5 py-1 text-left outline-none transition-colors hover:bg-slate-200 focus-visible:ring-2 focus-visible:ring-ring/50 dark:hover:bg-slate-700',
+            sorted && 'text-indigo-700 dark:text-indigo-300',
           )}
           aria-label={`Trier par ${typeof title === 'string' ? title : column.id}`}
         >
