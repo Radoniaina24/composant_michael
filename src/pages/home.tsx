@@ -1,7 +1,8 @@
 import { useState } from 'react'
+import { ArrowRightIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { z } from 'zod'
-import { Button } from '@/components/ui/button'
+import { ActionButton } from '@/components/action-button'
 import {
   Card,
   CardContent,
@@ -47,9 +48,13 @@ export default function HomePage() {
         <p className="max-w-2xl text-muted-foreground">
           React + Vite + TypeScript, TailwindCSS, shadcn/ui, React Router et Zod.
         </p>
-        <Button render={<Link to="/composants/boutons" />}>
+        <ActionButton
+          render={<Link to="/composants/boutons" />}
+          rightIcon={ArrowRightIcon}
+          fullWidth="mobile"
+        >
           Découvrir les composants
-        </Button>
+        </ActionButton>
       </section>
 
       <Card className="max-w-md">
@@ -87,7 +92,9 @@ export default function HomePage() {
             )}
           </CardContent>
           <CardFooter>
-            <Button type="submit">S’inscrire</Button>
+            <ActionButton type="submit" fullWidth="mobile">
+              S’inscrire
+            </ActionButton>
           </CardFooter>
         </form>
       </Card>

@@ -17,7 +17,9 @@ const pageTitles: Record<string, string> = {
   '/a-propos': 'À propos',
   '/parametres': 'Paramètres',
   '/composants/boutons': 'Boutons',
+  '/composants/boutons-radio': 'Boutons radio',
   '/composants/cartes': 'Cartes',
+  '/composants/cases-a-cocher': 'Cases à cocher',
   '/composants/formulaires': 'Formulaires',
 }
 

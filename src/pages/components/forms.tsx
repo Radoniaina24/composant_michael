@@ -1,7 +1,8 @@
 import { useState } from 'react'
+import { SendIcon } from 'lucide-react'
 import { z } from 'zod'
+import { ActionButton } from '@/components/action-button'
 import { PageHeader } from '@/components/page-header'
-import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -133,7 +134,9 @@ export default function FormsPage() {
             )}
           </CardContent>
           <CardFooter>
-            <Button type="submit">Envoyer</Button>
+            <ActionButton type="submit" leftIcon={SendIcon} fullWidth="mobile">
+              Envoyer
+            </ActionButton>
           </CardFooter>
         </form>
       </Card>
