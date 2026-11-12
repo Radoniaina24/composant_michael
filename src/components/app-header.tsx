@@ -1,5 +1,6 @@
 import { Fragment, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { CommandPaletteLauncher } from '@/components/shared/command-palette-launcher'
 import { ModeToggle } from '@/components/mode-toggle'
 import {
   Breadcrumb,
@@ -24,6 +25,7 @@ const pageTitles: Record<string, string> = {
   '/composants/listes-deroulantes': 'Listes déroulantes',
   '/composants/formulaires': 'Formulaires',
   '/composants/menus-deroulants': 'Menus déroulants',
+  '/composants/palette-de-commandes': 'Palette de commandes',
   '/composants/tableaux-de-donnees': 'Tableaux de données',
 }
 
@@ -95,6 +97,7 @@ export function AppHeader() {
         </BreadcrumbList>
       </Breadcrumb>
       <div className="ml-auto flex items-center gap-1">
+        <CommandPaletteLauncher compact />
         <ModeToggle />
       </div>
     </header>

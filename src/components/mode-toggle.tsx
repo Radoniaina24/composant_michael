@@ -6,6 +6,11 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@/components/ui/tooltip'
+import {
+  APP_THEME_CHANGE_EVENT,
+  setAppTheme,
+  type AppTheme,
+} from '@/lib/theme'
 
 const STORAGE_KEY = 'theme'
 
@@ -21,9 +26,18 @@ export function ModeToggle() {
   const [isDark, setIsDark] = useState(getInitialTheme)
 
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', isDark)
-    localStorage.setItem(STORAGE_KEY, isDark ? 'dark' : 'light')
+    setAppTheme(isDark ? 'dark' : 'light')
   }, [isDark])
+
+  useEffect(() => {
+    function syncTheme(event: Event) {
+      const themeEvent = event as CustomEvent<AppTheme>
+      setIsDark(themeEvent.detail === 'dark')
+    }
+
+    window.addEventListener(APP_THEME_CHANGE_EVENT, syncTheme)
+    return () => window.removeEventListener(APP_THEME_CHANGE_EVENT, syncTheme)
+  }, [])
 
   return (
     <Tooltip>

@@ -10,6 +10,7 @@ import FormsPage from '@/pages/components/forms'
 import HomePage from '@/pages/home'
 import InputsPage from '@/pages/components/inputs'
 import NotificationsPage from '@/pages/components/notifications'
+import CommandPaletteDemoPage from '@/pages/components/command-palette-demo'
 import NotFoundPage from '@/pages/not-found'
 import RadioGroupPage from '@/pages/components/radio-group'
 import SelectPage from '@/pages/components/select'
@@ -35,6 +36,7 @@ export const router = createBrowserRouter([
           { path: 'listes-deroulantes', element: <SelectPage /> },
           { path: 'formulaires', element: <FormsPage /> },
           { path: 'menus-deroulants', element: <DropdownMenusPage /> },
+          { path: 'palette-de-commandes', element: <CommandPaletteDemoPage /> },
           { path: 'tableaux-de-donnees', element: <DataTablePage /> },
           { path: 'notifications', element: <NotificationsPage /> },
         ],

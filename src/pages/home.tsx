@@ -3,6 +3,7 @@ import { ArrowRightIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { z } from 'zod'
 import { ActionButton } from '@/components/action-button'
+import { CommandPaletteLauncher } from '@/components/shared/command-palette-launcher'
 import {
   Card,
   CardContent,
@@ -48,13 +49,16 @@ export default function HomePage() {
         <p className="max-w-2xl text-muted-foreground">
           React + Vite + TypeScript, TailwindCSS, shadcn/ui, React Router et Zod.
         </p>
-        <ActionButton
-          render={<Link to="/composants/boutons" />}
-          rightIcon={ArrowRightIcon}
-          fullWidth="mobile"
-        >
-          Découvrir les composants
-        </ActionButton>
+        <div className="flex flex-wrap gap-2">
+          <ActionButton
+            render={<Link to="/composants/boutons" />}
+            rightIcon={ArrowRightIcon}
+            fullWidth="mobile"
+          >
+            Découvrir les composants
+          </ActionButton>
+          <CommandPaletteLauncher />
+        </div>
       </section>
 
       <Card className="max-w-md">
