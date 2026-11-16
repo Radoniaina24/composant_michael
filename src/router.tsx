@@ -14,6 +14,7 @@ import CommandPaletteDemoPage from '@/pages/components/command-palette-demo'
 import NotFoundPage from '@/pages/not-found'
 import RadioGroupPage from '@/pages/components/radio-group'
 import SelectPage from '@/pages/components/select'
+import SwitchesPage from '@/pages/components/switches'
 import SettingsPage from '@/pages/settings'
 
 export const router = createBrowserRouter([
@@ -35,6 +36,7 @@ export const router = createBrowserRouter([
           { path: 'champs-de-saisie', element: <InputsPage /> },
           { path: 'listes-deroulantes', element: <SelectPage /> },
           { path: 'formulaires', element: <FormsPage /> },
+          { path: 'interrupteurs', element: <SwitchesPage /> },
           { path: 'menus-deroulants', element: <DropdownMenusPage /> },
           { path: 'palette-de-commandes', element: <CommandPaletteDemoPage /> },
           { path: 'tableaux-de-donnees', element: <DataTablePage /> },

@@ -64,6 +64,7 @@ const componentsNavigation = [
   { title: 'Champs de saisie', url: '/composants/champs-de-saisie' },
   { title: 'Listes déroulantes', url: '/composants/listes-deroulantes' },
   { title: 'Formulaires', url: '/composants/formulaires' },
+  { title: 'Interrupteurs', url: '/composants/interrupteurs' },
   { title: 'Menus déroulants', url: '/composants/menus-deroulants' },
   { title: 'Palette de commandes', url: '/composants/palette-de-commandes' },
   { title: 'Tableaux de données', url: '/composants/tableaux-de-donnees' },
