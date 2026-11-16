@@ -1,6 +1,7 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 import AppLayout from '@/components/app-layout'
 import AboutPage from '@/pages/about'
+import BadgesPage from '@/pages/components/badges'
 import ButtonsPage from '@/pages/components/buttons'
 import CardsPage from '@/pages/components/cards'
 import CheckboxesPage from '@/pages/components/checkboxes'
@@ -29,6 +30,7 @@ export const router = createBrowserRouter([
         path: 'composants',
         children: [
           { index: true, element: <Navigate to="/composants/boutons" replace /> },
+          { path: 'badges', element: <BadgesPage /> },
           { path: 'boutons', element: <ButtonsPage /> },
           { path: 'boutons-radio', element: <RadioGroupPage /> },
           { path: 'cartes', element: <CardsPage /> },

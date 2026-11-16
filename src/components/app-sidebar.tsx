@@ -57,6 +57,7 @@ const navigation: NavItem[] = [
 ]
 
 const componentsNavigation = [
+  { title: 'Badges', url: '/composants/badges' },
   { title: 'Boutons', url: '/composants/boutons' },
   { title: 'Boutons radio', url: '/composants/boutons-radio' },
   { title: 'Cartes', url: '/composants/cartes' },
